@@ -10,9 +10,11 @@
     <section class="stats">
       <%= render 'shared/stats' %>
     </section>
-    <section>
-      <a href="/" class="btn btn-signup">Post a Tweet</a>
-    </section>
+    <% if current_user?(@user) %>
+      <section>
+        <a href="/" class="btn btn-signup">Post a Tweet</a>
+      </section>
+    <% end %>
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>

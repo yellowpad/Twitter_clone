@@ -1,0 +1,27 @@
+<nav class="navbar navbar-default">
+		<div class="container">
+			
+			<div class="navbar-header">
+				<%= link_to "Book Review", root_path, class: "navbar-brand" %>
+			</div>
+
+			<ul class="nav navbar-nav">
+				<% if logged_in? %>
+					<li><%= link_to "Log Out", '#', method: :delete %></li>				
+				<% else %>
+					<li><%= link_to "Signup", '#' %></li>
+					<li><%= link_to "Login", '#' %></li>						
+				<% end %>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false">Category<span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+					</ul>
+				</li>
+				<% if logged_in? %>
+					<li><%= link_to "Add Book", '#' %></li>
+				<% end %>
+			</ul>
+		</div>
+</nav>
