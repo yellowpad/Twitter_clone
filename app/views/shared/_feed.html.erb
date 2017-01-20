@@ -1,5 +1,5 @@
 <% if @feed_items.any? %>
-  <ol class="microposts" style="border-bottom: 1px solid #e1e8ed;padding:4px;">
+  <ol class="microposts" style="border-bottom: 1px solid #e1e8ed;padding:5px;">
     <%= render @feed_items %>
   </ol>
   <%= will_paginate @feed_items %>
