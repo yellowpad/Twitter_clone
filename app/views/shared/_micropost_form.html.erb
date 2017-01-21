@@ -1,7 +1,7 @@
 <%= form_for(@micropost, html: { multipart: true }) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_area :content, placeholder: "Write new Tweet...", style:"padding:10px;" %>
+    <%= f.text_area :content, :maxlength => 140, placeholder: "Write new Tweet...", id: "mp-content", style:"padding:10px;" %>
   </div>
   <%= f.submit "Post", class: "btn btn-twitter" %>
   <span class="picture">
@@ -16,4 +16,19 @@
       alert('Maximum file size is 5MB. Please choose a smaller file.');
     }
   });
+</script>
+<script>
+jQuery(document).ready(function($){
+  
+  function checkLength($edit, $maxlen) {
+    if (parseInt($edit) > $maxlen) {
+        $('#mp-content').css('border-color', 'red');
+    }
+
+  }  
+
+  var $checker = document.getElementById('mp-content').innerHTML.length;
+  checkLength(13, 14);
+
+});
 </script>
